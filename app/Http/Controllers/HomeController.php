@@ -19,14 +19,16 @@ class HomeController extends Controller
 
     public function home(): View
     {
-        $currencies = Currency::all();
+        $currencies = $this->convertService->allCurrencies();
+
         return view('home', ['currencies' => $currencies]);
     }
 
     public function convert(Request $request): View
     {
-        $currencies = Currency::all();
+        $currencies = $this->convertService->allCurrencies();
         $convert = $this->convertService->convert($request->get('currency'), $request->get('amount'));
+
         return view('home', ['currencies' => $currencies, 'convert' => $convert]);
     }
 }
