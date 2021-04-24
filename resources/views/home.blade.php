@@ -32,7 +32,7 @@
     @if (empty($_POST['amount']) && empty($_POST['currency']))
 
     @else
-        {{$_POST['currency']}} {{ $convert / 10000}}
+        <div class=" text-center block font-semibold w-11/12 bg-clip-border p-6  border-4 border-indigo-300 border-dashed">Your EUR to {{$_POST['currency']}} conversation is {{ $convert / 10000}}</div>
     @endif
 
 @stop
